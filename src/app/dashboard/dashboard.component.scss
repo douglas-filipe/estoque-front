@@ -1,0 +1,56 @@
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 20px;
+}
+
+.header-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    h1 {
+        color: rgb(46, 46, 46);
+        font-size: 24px;
+    }
+}
+
+.table-chart{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.table-container{
+    width: 100%;
+    max-width: 800px;
+}
+
+.chart-container{
+    width: 100%;
+    max-width: 300px;
+}
+
+h1 {
+    color: rgb(46, 46, 46);
+    font-size: 24px;
+}
+
+@media (max-width: 1135px) {
+    .chart-container{
+        width: 100%;
+        max-width: 100%;
+        margin: auto;
+        .chart{
+            width: 90%;
+            margin: auto;
+            max-width: 50%;
+        }
+    }
+    
+}

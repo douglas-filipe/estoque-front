@@ -1,0 +1,23 @@
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 20px;
+}
+
+.header-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    h1 {
+        color: rgb(46, 46, 46);
+        font-size: 24px;
+    }
+}
+
+.label-required {
+    color: red;
+}

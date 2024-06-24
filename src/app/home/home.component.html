@@ -1,0 +1,74 @@
+<p-toast />
+
+<div class="container">
+    <div class="header-title">
+        <h1>Produtos</h1>
+        <button pButton pRipple label="Adicionar" class="p-button-info" (click)="openNewProductModal()"></button>
+    </div>
+    <div class="filters">
+        <input placeholder="Nome do produto" pInputText id="productDescription" class="flex-auto"
+            [(ngModel)]="descriptionProduct" autocomplete="off" (input)="filterProductsByCategory()" />
+        <p-multiSelect id="categories-multi" [options]="categoryOptionsMulti" [(ngModel)]="selectedCategories"
+            optionLabel="label" optionValue="value" placeholder="Categorias" (onChange)="filterProductsByCategory()" />
+    </div>
+    <div class="container-product">
+        <div *ngFor="let item of data" class="product">
+            <h1>
+                {{ item.description }}
+            </h1>
+            <p>
+                Preço: R${{ item.price }}
+            </p>
+            <p>
+                Dólar: ${{item.price_in_usd}}
+            </p>
+            <p>
+                Disponível: {{ item.stock_quantity }}
+            </p>
+
+            <p>
+                Categoria: {{ item.category.description }}
+            </p>
+            <p-button class="btn-product" label="Comprar" severity="primary" (click)="openBuyModal(item)"></p-button>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Adicionar produto" [modal]="true" [(visible)]="visibleModal" [style]="{ width: '30rem' }">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+        <label for="productDescription" class="font-semibold">Descrição <span class="label-required">*</span></label>
+        <input pInputText id="productDescription" class="flex-auto" [(ngModel)]="newProduct.description"
+            autocomplete="off" />
+
+        <label for="productPrice" class="font-semibold">Preço <span class="label-required">*</span></label>
+        <input type="number" pInputText id="productPrice" class="flex-auto" [(ngModel)]="newProduct.price"
+            autocomplete="off" />
+
+        <label for="productCategory" class="font-semibold">Categoria <span class="label-required">*</span></label>
+        <p-dropdown class="custom-dropdown" id="productCategory" [options]="categoryOptions"
+            [(ngModel)]="newProduct.category_id" optionLabel="label" optionValue="value"></p-dropdown>
+
+        <label for="productStock" class="font-semibold">Quantidade em Estoque <span
+                class="label-required">*</span></label>
+        <input type="number" pInputText id="productStock" class="flex-auto" [(ngModel)]="newProduct.stock_quantity"
+            autocomplete="off" />
+    </div>
+    <div style="display: flex; margin-top: 50px; width: 100%; justify-content: space-between;">
+        <p-button label="Cancelar" severity="secondary" (click)="visibleModal = false" />
+        <p-button label="Salvar" (click)="saveNewProduct()" />
+    </div>
+    <div style="width: 100%;" class="dropdown-container">
+    </div>
+</p-dialog>
+
+<p-dialog header="Comprar produto" [modal]="true" [(visible)]="visibleBuyModal" [style]="{ width: '30rem' }">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+        <label for="quantityToBuy">Quantidade desejada:</label>
+        <input type="number" pInputText id="quantityToBuy" class="flex-auto" [(ngModel)]="quantityToBuy"
+            autocomplete="off" />
+    </div>
+    <div style="display: flex; margin-top: 50px; width: 100%; justify-content: space-between;">
+        <p-button label="Cancelar" severity="secondary" (click)="visibleBuyModal = false"></p-button>
+        <p-button label="Salvar" (click)="savePurchase()"></p-button>
+    </div>
+</p-dialog>

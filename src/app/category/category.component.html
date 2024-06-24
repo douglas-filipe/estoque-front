@@ -1,0 +1,33 @@
+<p-toast />
+
+<div class="container">
+    <div class="header-title">
+        <h1>Categorias</h1>
+        <button pButton pRipple label="Adicionar" class="p-button-info" (click)="showDialog()"></button>
+    </div>
+    <p-table [value]="categories" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Id</th>
+                <th>Descrição</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-category>
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.description }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+
+<p-dialog header="Cadastrar categoria" [modal]="true" [(visible)]="visible" [style]="{ width: '25rem' }">
+    <div style="display: flex; flex-direction: column; gap: 20px;">
+        <label for="description" class="font-semibold w-6rem">Descrição <span class="label-required">*</span></label>
+        <input pInputText id="description" class="flex-auto" [(ngModel)]="newCategory.description" autocomplete="off" />
+    </div>
+    <div style="display: flex; margin-top: 50px; width: 100%; justify-content: space-between;">
+        <p-button label="Cancelar" severity="secondary" (click)="visible = false" />
+        <p-button label="Salvar" (click)="saveCategory()" />
+    </div>
+</p-dialog>

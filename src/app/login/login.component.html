@@ -1,0 +1,22 @@
+<p-toast />
+<div class="login-container">
+  <h2>Login</h2>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" id="email" pInputText formControlName="email" />
+    </div>
+    <div class="form-group">
+      <label for="password">Senha</label>
+      <input type="password" id="password" pInputText formControlName="password" />
+    </div>
+    <button pButton type="submit" label="Entrar"></button>
+    <div class="form-group link">
+      <a href="/signup">
+        Criar conta
+      </a>
+    </div>
+  </form>
+</div>
+
+<router-outlet />

@@ -1,0 +1,97 @@
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: auto;
+    padding: 20px;
+}
+
+.header-title {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+
+    h1 {
+        color: rgb(46, 46, 46);
+        font-size: 24px;
+    }
+}
+
+.label-required {
+    color: red;
+}
+
+:host ::ng-deep .custom-dropdown div#productCategory {
+    width: 100%;
+}
+
+.container-product {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-top: 40px;
+    justify-content: stretch;
+}
+
+.product {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    max-width: 200px;
+
+    h1 {
+        color: rgb(46, 46, 46);
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .btn-product{
+        margin-top: 20px;
+        align-self: center;
+    }
+}
+
+.filters {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    width: 100%;
+
+    input {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+@media (max-width: 500px) {
+    .container-product {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-top: 40px;
+        justify-content: center;
+    }
+
+    .filters {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        width: 100%;
+
+        input {
+            max-width: 100%;
+        }
+    }
+
+    :host ::ng-deep .p-multiselect .custom-dropdown {
+        background: red;
+        width: 100%;
+    }
+
+}

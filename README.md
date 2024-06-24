@@ -7,14 +7,14 @@ Siga os passos abaixo para executar o front.
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/seu-usuario/fastapi-projeto.git
-cd fastapi-projeto
+git clone git@github.com:douglas-filipe/estoque-front.git
+cd estoque-front
 ```
 
 2. Instale as dependências:
 
 ```bash
-npm
+npm i
 ```
 
 ## Execução do projeto
